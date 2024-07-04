@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dependent Dropdown Form</title>
     <style>
-
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f0f0;
 }
 
 .form-container {
-    max-width: 530px;
+    max-width: 500px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 5px;
@@ -80,7 +78,7 @@ body {
 
 .option-box {
     display: inline-block;
-    padding: 12px 45px;
+    padding: 15px 40px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin: 5px;
@@ -155,9 +153,9 @@ body {
 <div class="form-container">
     <form id="car-review-form">
         <div class="form-group">
-            <label for="brand">Welche Marke hat Ihr Auto?</label>
+            <label for="brand">What brand is your car?</label>
             <select id="brand">
-                <option value="">Marke auswählen</option>
+                <option value="">Select brand</option>
                 <option value="Abarth">Abarth</option>
                 <option value="Alfa Romeo">Alfa Romeo</option>
                 <option value="Alpina">Alpina</option>
@@ -239,111 +237,110 @@ body {
                 <option value="Westfield">Westfield</option>
                 <option value="Zastava">Zastava</option>
             </select>
-            <input type="text" id="brand-other" class="hidden" placeholder="Marke eingeben">
+            <input type="text" id="brand-other" class="hidden" placeholder="Enter brand">
         </div>
         <div class="form-group">
-            <label for="model">Welches Modell?</label>
+            <label for="model">Which model?</label>
             <select id="model" disabled>
-                <option value="">Modell auswählen</option>
-                <option value="Other">Andere</option>
+                <option value="">Select model</option>
+                <option value="Other">Other</option>
             </select>
-            <input type="text" id="model-other" class="hidden" placeholder="Modell eingeben">
+            <input type="text" id="model-other" class="hidden" placeholder="Enter model">
         </div>
         <div class="form-group">
-            <label for="year">In welchem Jahr wurde es registriert?</label>
+            <label for="year">In which year was it registered?</label>
             <select id="year" disabled>
-                <option value="">Erstzulassung auswählen</option>
-                <option value="Other">Andere</option>
+                <option value="">Select first registration</option>
+                <option value="Other">Other</option>
             </select>
-            <input type="text" id="year-other" class="hidden" placeholder="Jahr eingeben">
+            <input type="text" id="year-other" class="hidden" placeholder="Enter year">
         </div>
-    
+
         <div class="form-group hidden" id="shape-group">
-            <label for="shape">Welche Form hat es?</label>
+            <label for="shape">What shape does it have?</label>
             <div class="option-box" data-value="Roadster">Roadster</div>
             <div class="option-box" data-value="SUV">SUV</div>
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="shape-other" class="hidden" placeholder="Form eingeben">
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="shape-other" class="hidden" placeholder="Enter shape">
         </div>
-    
+
         <div class="form-group hidden" id="fuel-group">
-            <label for="fuel">Welchen Kraftstoff verwendet es?</label>
-            <div class="option-box" data-value="Petrol">Benzin</div>
-            <div class="option-box" data-value="Electric">Elektro</div>
+            <label for="fuel">What fuel does it use?</label>
+            <div class="option-box" data-value="Petrol">Petrol</div>
+            <div class="option-box" data-value="Electric">Electric</div>
             <!--<div class="option-box" data-value="Hybrid">Hybrid</div>-->
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="fuel-other" class="hidden" placeholder="Kraftstofftyp eingeben">
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="fuel-other" class="hidden" placeholder="Enter fuel type">
         </div>
-    
+
         <div class="form-group hidden" id="variant-group">
-            <label for="variant">Welche Modellvariante ist es?</label>
-            <div class="option-box" data-value="1.6">1,6 L</div>
-            <div class="option-box" data-value="1.8">1,8 L</div>
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="variant-other" class="hidden" placeholder="Modellvariante eingeben">
+            <label for="variant">Which model variant is it?</label>
+            <div class="option-box" data-value="1.6">1.6 L</div>
+            <div class="option-box" data-value="1.8">1.8 L</div>
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="variant-other" class="hidden" placeholder="Enter model variant">
         </div>
-    
+
         <div class="form-group hidden" id="horsepower-group">
-            <label for="horsepower">Wie viele PS hat es?</label>
-            <div class="option-box" data-value="147 kW">147 kW</div>
-            <div class="option-box" data-value="294 kW">294 kW</div>
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="horsepower-other" class="hidden" placeholder="PS eingeben">
+            <label for="horsepower">How many horsepower does it have?</label>
+            <div class="option-box" data-value="147 kW ">147 kW </div>
+            <div class="option-box" data-value="294 kW ">294 kW </div>
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="horsepower-other" class="hidden" placeholder="Enter horsepower">
         </div>
-    
+
         <div class="form-group hidden" id="transmission-group">
-            <label for="transmission">Welche Übertragung hat es?</label>
-            <div class="option-box" data-value="Automatic" style="padding: 12px 35px;">Automatik</div>
-            <div class="option-box" data-value="Manual" style="padding: 12px 35px;" >Manuell</div>
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="transmission-other" class="hidden" placeholder="Übertragungsart eingeben">
+            <label for="transmission">What transmission does it have?</label>
+            <div class="option-box" data-value="Automatic">Automatic</div>
+            <div class="option-box" data-value="Manual">Manual</div>
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="transmission-other" class="hidden" placeholder="Enter transmission type">
         </div>
-    
+
         <div class="form-group hidden" id="doors-group">
-            <label for="doors">Wie viele Türen hat es?</label>
-            <div class="option-box" data-value="2 doors">2 Türen</div>
-            <div class="option-box" data-value="4 doors">4 Türen</div>
-            <div class="option-box" data-value="Other">Andere</div>
-            <input type="text" id="doors-other" class="hidden" placeholder="Anzahl der Türen eingeben">
+            <label for="doors">How many doors does it have?</label>
+            <div class="option-box" data-value="2 doors">2 doors</div>
+            <div class="option-box" data-value="4 doors">4 doors</div>
+            <div class="option-box" data-value="Other">Other</div>
+            <input type="text" id="doors-other" class="hidden" placeholder="Enter number of doors">
         </div>
-    
+
         <div class="form-group hidden" id="mileage-group">
-            <label for="mileage">Wie viele Kilometer hat es gefahren?</label>
-            <input type="text" id="mileage" placeholder="Kilometerstand eingeben">
+            <label for="mileage">What is the mileage?</label>
+            <input type="text" id="mileage" placeholder="Enter mileage">
         </div>
-    
+        
         <div class="form-group hidden" id="additional-options-group">
             <div class="form-group">
-                <label for="sell-plan">Wann planen Sie zu verkaufen?</label>
+                <label for="sell-plan">When do you plan to sell?</label>
                 <select id="sell-plan">
-                    <option value="">Zeitraum auswählen</option>
-                    <option value="next-4-weeks">In den nächsten 4 Wochen</option>
-                    <option value="next-3-months">In den nächsten 3 Monaten</option>
-                    <option value="next-6-months">In den nächsten 6 Monaten</option>
+                    <option value="">Select timeframe</option>
+                    <option value="next-4-weeks">Over the next 4 weeks</option>
+                    <option value="next-3-months">Over the next 3 months</option>
+                    <option value="next-6-months">Over the next 6 months</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="prefer-to-sell">Wem möchten Sie verkaufen?</label>
+                <label for="prefer-to-sell">Who do you prefer to sell to?</label>
                 <select id="prefer-to-sell">
-                    <option value="">Option auswählen</option>
-                    <option value="private">An Privat</option>
-                    <option value="dealer">An Händler</option>
+                    <option value="">Select option</option>
+                    <option value="private">To Private</option>
+                    <option value="dealer">To Dealer</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="email">Wohin sollen wir das Verkaufsangebot senden?</label>
-                <input type="email" id="email" placeholder="Bitte E-Mail-Adresse eingeben">
+                <label for="email">Where can we send the sales offer?</label>
+                <input type="email" id="email" placeholder="Please enter email address">
             </div>
         </div>
-    
+
         <div class="form-group hidden" id="upload-image-group">
-            <label for="car-image">Laden Sie ein Bild Ihres Autos hoch</label>
+            <label for="car-image">Upload an image of your car</label>
             <input type="file" id="car-image" accept="image/*">
         </div>
-    
-        <button type="submit" class="submit-btn" disabled>Bewertung einreichen!</button>
+
+        <button type="submit" class="submit-btn" disabled>Let Submit Review!</button>
     </form>
-    
 
     <script type="text/javascript">
         (function() {
@@ -671,12 +668,26 @@ document.addEventListener('DOMContentLoaded', function() {
             email: document.getElementById('email').value
         };
 
-
-
+        emailjs.send('service_lltcwlr', 'template_916aebj', data)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Your review has been submitted successfully.');
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Failed to send your review. Please try again.');
+            });
     });
-}); 
+});
 
 </script>
+
+<center>
+<div style="margin-top: 20px; color: #00b64c;" class="semail">
+    <h1>Email Template</h1>
+    <p>This is how email will recieved or provide me your own created custom template.</p>
+    <img  src="Email Template.png" alt="Email">
+</div>
+</center>
 
 
 
