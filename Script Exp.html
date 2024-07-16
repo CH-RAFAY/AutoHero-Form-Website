@@ -1,0 +1,413 @@
+<!-- 
+Author: Abdul Rafay Chaudhry
+Year: 2024
+License: All rights reserved. This code is proprietary and strictly not to be used, reproduced, 
+or distributed without explicit permission from the author.
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependent Dropdown Form</title>
+    <style>
+        /* Styling for the body */
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Styling for the form container */
+        .form-container {
+            max-width: 530px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff; /* Added background color */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Added shadow */
+        }
+
+        /* Styling for inputs with specific IDs */
+        #mileage, #email, #car-image {
+            width: calc(97.5% - 20px);
+            padding: 10px;
+            border: 2.5px solid #ababab;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        /* Styling for form group containers */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Styling for labels within form groups */
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 17px;
+        }
+
+        /* Styling for inputs within form groups */
+        .form-group input {
+            width: auto;
+            padding: 10px;
+            border: 2.5px solid #949494;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        /* Styling for select dropdowns within form groups */
+        .form-group select {
+            width: calc(100% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 15px;
+        }
+
+        /* Styling for hidden inputs */
+        .form-group input.hidden {
+            display: none;
+        }
+
+        /* Styling for focused or selected elements */
+        .form-group select:focus,
+        .form-group select.selected,
+        .form-group input:focus {
+            border: 2.5px solid green;
+        }
+
+        /* Styling for option boxes */
+        .option-box {
+            display: inline-block;
+            padding: 12px 45px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        /* Styling for selected option boxes */
+        .option-box.selected {
+            border: 2.5px solid green;
+            color: green;
+            font-weight: 600;
+        }
+
+        /* Hidden class for hiding elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Styling for submit button */
+        .submit-btn {
+            display: block;
+            margin: 30px auto;
+            width: 60%;
+            padding: 10px;
+            background-color: #00d058;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Styling for submit button on hover */
+        .submit-btn:hover {
+            background-color: #32cd70;
+        }
+
+        /* Styling for submit button on active */
+        .submit-btn:active {
+            background-color: #034e28;
+        }
+
+        /* Styling for disabled submit button */
+        .submit-btn:disabled {
+            background-color: #ccc;
+        }
+
+        /* Styling for select options */
+        .form-group select option {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Form container -->
+<div class="form-container">
+    <!-- Car review form -->
+    <form id="car-review-form">
+        <!-- Car brand selection -->
+        <div class="form-group">
+            <label for="brand">Welche Marke hat Ihr Auto?</label>
+            <select id="brand">
+                <option value="">Marke auswählen</option>
+                <option value="Abarth">Abarth</option>
+                <option value="Alfa Romeo">Alfa Romeo</option>
+                <option value="Alpina">Alpina</option>
+                <option value="Aston Martin">Aston Martin</option>
+                <option value="Audi">Audi</option>
+                <option value="Bentley">Bentley</option>
+                <option value="BMW">BMW</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Caterham">Caterham</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Citroën">Citroën</option>
+                <option value="Corvette">Corvette</option>
+                <option value="VITAL NI">VITAL NI</option>
+                <option value="Smart">Smart</option>
+                <option value="Seat Leon">Seat Leon</option>
+                <option value="Renault">Renault</option>
+                <option value="Daewoo">Daewoo</option>
+                <option value="Daihatsu">Daihatsu</option>
+                <option value="Dodge">Dodge</option>
+                <option value="DS Automobiles">DS Automobiles</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="INEOS">INEOS</option>
+                <option value="Infiniti">Infiniti</option>
+                <option value="Isuzu">Isuzu</option>
+                <option value="Iveco">Iveco</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Kia">Kia</option>
+                <option value="Lada">Lada</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Lancia">Lancia</option>
+                <option value="Land Rover">Land Rover</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Lucid">Lucid</option>
+                <option value="Lynk & Co">Lynk & Co</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="ONE">ONE</option>
+                <option value="Maserati">Maserati</option>
+                <option value="MAXUS">MAXUS</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="MG">MG</option>
+                <option value="MG Rover">MG Rover</option>
+                <option value="MINI">MINI</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="NIO">NIO</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Opel">Opel</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Piaggio (Vespa)">Piaggio (Vespa)</option>
+                <option value="Polestar">Polestar</option>
+                <option value="Pontiac">Pontiac</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Proton">Proton</option>
+                <option value="Renault">Renault</option>
+                <option value="Rover">Rover</option>
+                <option value="Saab">Saab</option>
+                <option value="Seat">Seat</option>
+                <option value="Skoda">Skoda</option>
+                <option value="Smart">Smart</option>
+                <option value="Ssangyong">Ssangyong</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Tata">Tata</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Trabant">Trabant</option>
+                <option value="Triumph">Triumph</option>
+                <option value="VinFast">VinFast</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Wartburg">Wartburg</option>
+                <option value="Westfield">Westfield</option>
+                <option value="Zastava">Zastava</option>
+                <option value="Anders">Anders</option>
+            </select>
+            <input type="text" id="brand-other" class="hidden" placeholder="Andere Marke">
+        </div>
+
+        <!-- Car model selection -->
+        <div class="form-group">
+            <label for="model">Welches Modell hat Ihr Auto?</label>
+            <select id="model" disabled>
+                <option value="">Modell auswählen</option>
+            </select>
+            <input type="text" id="model-other" class="hidden" placeholder="Anderes Modell">
+        </div>
+
+        <!-- Car year selection -->
+        <div class="form-group">
+            <label for="year">Erstzulassung</label>
+            <select id="year" disabled>
+                <option value="">Erstzulassung auswählen</option>
+            </select>
+            <input type="text" id="year-other" class="hidden" placeholder="Anderes Jahr">
+        </div>
+
+        <!-- Mileage input -->
+        <div class="form-group">
+            <label for="mileage">Kilometerstand</label>
+            <input type="number" id="mileage" placeholder="Kilometerstand eingeben">
+        </div>
+
+        <!-- Email input -->
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" placeholder="Ihre E-Mail-Adresse eingeben">
+        </div>
+
+        <!-- Car image input -->
+        <div class="form-group">
+            <label for="car-image">Bild des Autos hochladen</label>
+            <input type="file" id="car-image">
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="submit-btn">Bewertung abschicken</button>
+    </form>
+</div>
+
+<script>
+    // Car models data for each brand
+    const carModels = {
+        'Abarth': ['595', '695'],
+        'Alfa Romeo': ['Giulia', 'Stelvio', 'GTV'],
+        'Alpina': ['B3', 'B4'],
+        'Aston Martin': ['Vantage', 'DB11', 'DBS'],
+        'Audi': ['A3', 'A4', 'A5', 'A6', 'Q7'],
+        // Add more car brands and their models as needed
+    };
+
+    // Car years data for each brand
+    const carYears = {
+        'Abarth': ['2021', '2020', '2019', '2018', '2017'],
+        'Alfa Romeo': ['2021', '2020', '2019', '2018', '2017'],
+        'Alpina': ['2021', '2020', '2019', '2018', '2017'],
+        'Aston Martin': ['2021', '2020', '2019', '2018', '2017'],
+        'Audi': ['2021', '2020', '2019', '2018', '2017'],
+        // Add more car brands and their years as needed
+    };
+
+    // DOM elements for brand, model, and year selects, and "Other" input fields
+    const brandSelect = document.getElementById('brand');
+    const modelSelect = document.getElementById('model');
+    const yearSelect = document.getElementById('year');
+    const brandOtherInput = document.getElementById('brand-other');
+    const modelOtherInput = document.getElementById('model-other');
+    const yearOtherInput = document.getElementById('year-other');
+
+    // Event listener for brand selection change
+    brandSelect.addEventListener('change', function() {
+        const brand = brandSelect.value;
+        if (brand === 'Other') {
+            // Show the "Other" input field for brand
+            brandOtherInput.classList.remove('hidden');
+            modelSelect.disabled = true;
+            yearSelect.disabled = true;
+        } else {
+            // Hide the "Other" input field for brand and update model options
+            brandOtherInput.classList.add('hidden');
+            updateModelOptions(brand);
+            modelSelect.disabled = false;
+            yearSelect.disabled = true;
+        }
+    });
+
+    // Event listener for model selection change
+    modelSelect.addEventListener('change', function() {
+        const model = modelSelect.value;
+        if (model === 'Other') {
+            // Show the "Other" input field for model
+            modelOtherInput.classList.remove('hidden');
+            yearSelect.disabled = true;
+        } else {
+            // Hide the "Other" input field for model and update year options
+            modelOtherInput.classList.add('hidden');
+            updateYearOptions(model);
+            yearSelect.disabled = false;
+        }
+    });
+
+    // Event listener for year selection change
+    yearSelect.addEventListener('change', function() {
+        const year = yearSelect.value;
+        if (year === 'Other') {
+            // Show the "Other" input field for year
+            yearOtherInput.classList.remove('hidden');
+        } else {
+            // Hide the "Other" input field for year
+            yearOtherInput.classList.add('hidden');
+        }
+    });
+
+    // Function to update model options based on selected brand
+    function updateModelOptions(brand) {
+        modelSelect.innerHTML = '<option value="">Modell auswählen</option>';
+        carModels[brand].forEach(function(model) {
+            const option = document.createElement('option');
+            option.value = model;
+            option.textContent = model;
+            modelSelect.appendChild(option);
+        });
+        const otherOption = document.createElement('option');
+        otherOption.value = 'Other';
+        otherOption.textContent = 'Andere';
+        modelSelect.appendChild(otherOption);
+    }
+
+    // Function to update year options based on selected model
+    function updateYearOptions(model) {
+        yearSelect.innerHTML = '<option value="">Erstzulassung auswählen</option>';
+        const brand = brandSelect.value;
+        carYears[brand].forEach(function(year) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        });
+        const otherOption = document.createElement('option');
+        otherOption.value = 'Other';
+        otherOption.textContent = 'Andere';
+        yearSelect.appendChild(otherOption);
+    }
+
+    // Event listener for form submission
+    document.getElementById('car-review-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Collect form data
+        const formData = {
+            brand: brandSelect.value,
+            brandOther: brandOtherInput.value,
+            model: modelSelect.value,
+            modelOther: modelOtherInput.value,
+            year: yearSelect.value,
+            yearOther: yearOtherInput.value,
+            mileage: document.getElementById('mileage').value,
+            email: document.getElementById('email').value,
+            // Add more form data as needed
+        };
+
+        console.log(formData);
+        // You can now use emailjs to send this form data or any other method to process it
+    });
+</script>
+</body>
+</html>
